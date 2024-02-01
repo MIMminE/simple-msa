@@ -19,11 +19,16 @@ spring:
 
       routes:
         - id: user-service
-          uri: http://127.0.0.1:8001/
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
           filters:
             - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway Logging Filter
+                preLogger: true
+                postLogger: true
 
   application:
     name: gateway-service
