@@ -9,7 +9,7 @@ import lombok.Data;
 public class UserEntity {
 
     @Id @GeneratedValue
-    private String id;
+    private Long id;
 
     @Column(nullable = false, length = 50, unique = true)
     private String email;
@@ -20,7 +20,7 @@ public class UserEntity {
     @Column(nullable = false, unique = true)
     private String userId;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false) // TODO, unique = true 옵션 활성화 필요
     private String encryptedPwd;
 }
 
