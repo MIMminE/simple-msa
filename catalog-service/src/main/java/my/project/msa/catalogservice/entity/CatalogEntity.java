@@ -18,7 +18,7 @@ public class CatalogEntity {
     @Column(nullable = false, length =  120, unique = true)
     private String productId;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String productName;
 
     @Column(nullable = false)
