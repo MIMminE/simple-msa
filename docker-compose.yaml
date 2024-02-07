@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  discovery-service:
+    image: discovery-service
+    build:
+      context: ./discovery-service
+      dockerfile: Dockerfile
+    container_name: discovery-service
+    ports:
+      - "8761:8761"
+
+  gateway-service:
+    image: gateway-service
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    container_name: gateway-service
+    ports:
+      - "8000:8000"
+    environment:
+      - EUREKA_DEFAULT_ZONE=http://discovery-service:8761/eureka
+
+  user-service:
+    image: user-service
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    container_name: user-service
+    environment:
+      - EUREKA_DEFAULT_ZONE=http://discovery-service:8761/eureka

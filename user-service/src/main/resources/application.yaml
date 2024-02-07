@@ -1,5 +1,5 @@
 server:
-  port: 7777
+  port: 0
 
 spring:
   application:
@@ -30,7 +30,8 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone:http: //127.0.0.1:8761/eureka
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+#      defaultZone: http://127.0.0.1:8761/eureka
 
 greeting:
   message: Welcome to the simple E-Commerce.
