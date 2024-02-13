@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class CatalogServiceImpl implements CatalogService{
 
     CatalogRepository repository;
-    Environment env;
 
     @Override
     public Iterable<CatalogEntity> getAllCatalogs() {

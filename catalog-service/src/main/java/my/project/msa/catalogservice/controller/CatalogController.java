@@ -1,4 +1,4 @@
-package my.project.msa.catalogservice.dto.controller;
+package my.project.msa.catalogservice.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,6 @@ import java.util.List;
 @RequestMapping("/catalog-service")
 @RequiredArgsConstructor
 public class CatalogController {
-    final private Environment env;
     final private CatalogService catalogService;
     private CatalogsMapper mapper = CatalogsMapper.INSTANCE;
 

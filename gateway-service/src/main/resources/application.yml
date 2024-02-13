@@ -5,9 +5,9 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-#      defaultZone: http://localhost:8761/eureka
-      defaultZone: ${EUREKA_DEFAULT_ZONE}
-#      http://discovery-service:8761/eureka
+      defaultZone: http://localhost:8761/eureka
+#      defaultZone: ${EUREKA_DEFAULT_ZONE}
+##      http://discovery-service:8761/eureka
 
 spring:
   cloud:
@@ -35,6 +35,11 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
             - Path=/catalog-service/**
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
 
   application:
     name: gateway-service
